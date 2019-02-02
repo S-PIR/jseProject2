@@ -1,12 +1,19 @@
 package by.gsu.epamlab.beans;
 
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+import by.gsu.epamlab.constants.Constants;
 
 public class Result {
 	private String login;
 	private String test;
 	private Date date;
 	private Mark mark;
+
+	private final static SimpleDateFormat GET_DATE_FORMAT = new SimpleDateFormat("dd.MM.yyyy");
+	private final static SimpleDateFormat SET_DATE_FORMAT = new SimpleDateFormat("yy-MM-dd");
 
 	public Result() {
 		super();
@@ -44,8 +51,16 @@ public class Result {
 		this.date = date;
 	}
 
-	public void setDate(String date) {
-		this.date = Date.valueOf(date);
+	public void setDate(String dateString) {
+		try {
+			date = new Date(SET_DATE_FORMAT.parse(dateString).getTime());
+		} catch (ParseException e) {
+			throw new IllegalArgumentException(Constants.ERROR_PARSE_DATE);
+		}
+	}
+
+	public String getStringDate() {
+		return GET_DATE_FORMAT.format(date);
 	}
 
 	public Mark getMark() {

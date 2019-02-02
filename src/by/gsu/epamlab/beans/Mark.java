@@ -1,12 +1,13 @@
 package by.gsu.epamlab.beans;
 
+
 public class Mark {
 	int value;
 
 	public Mark(int value) {
 		this.value = value;
 	}
-	
+
 	public Mark(Mark value) {
 		this.value = value.getValue();
 	}

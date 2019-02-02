@@ -17,5 +17,7 @@ public class Constants {
 	public static final String DB_CONNECTION_ERROR = "Database connection error!";
 	public static final String EMPTY_FILE = "File is emty!";
 	public static final String FORMAT_AVG_OUTPUT = "%-10s%.2f\n";
+	public static final String ERROR_PARSE_DATE = "Date parsing ERROR!!!";
+
 	
 }
